@@ -9,6 +9,7 @@ verify_ssl = true
 flask = "*"
 python-dotenv = "*"
 gunicorn = "*"
+covid19uncle = "*"
 
 [requires]
 python_version = "3.7"
