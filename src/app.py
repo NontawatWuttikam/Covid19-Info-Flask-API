@@ -8,4 +8,4 @@ thai_result = ThaiCovid19()
 @appBlueprint.route('/')
 def hello_api():
     print(thai_result)
-    return 0
+    return thai_result
