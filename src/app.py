@@ -8,16 +8,26 @@ import json
 
 appBlueprint = Blueprint("covid19",__name__)
 thai_result = ThaiCovid19()
+global_result = covid19()
 
 @appBlueprint.route('/')
 def landing():
     # print(thai_result)
     return "landing"
 
-@appBlueprint.route('/thai')
+@appBlueprint.route('/thai/menu')
 def thai_inform():
     global thai_result
     key_list = list(thai_result.keys())
+    string = "ข้อมูลทั้งหมดในประเทศไทย\n"
+    for i in range(len(key_list)):
+        string = string + str(i) + ". " + key_list[i] + "\n"
+    return Response(string,mimetype='text/json')
+
+@appBlueprint.route('global/menu')
+def global_inform():
+    global global_result
+    key_list = list(global_result.keys())
     string = "ข้อมูลทั้งหมด\n"
     for i in range(len(key_list)):
         string = string + str(i) + ". " + key_list[i] + "\n"
