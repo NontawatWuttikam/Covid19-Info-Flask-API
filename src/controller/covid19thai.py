@@ -25,6 +25,7 @@ def landing():
     string += "<h3>/thai/all ข้อมูลของประเทศไทย</h3><br>"
     string += "<h3>/global/country={ชื่อประเทศ} ข้อมูลของประเทศอื่นๆ</h3><br>"
     string += "<h3>/global/country/menu ดูรายชื่อประเทศทั้งหมด</h3><br>"
+    return string
 
 
 @appBlueprint.route('/thai/menu')
