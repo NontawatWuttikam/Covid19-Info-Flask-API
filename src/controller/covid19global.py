@@ -9,6 +9,7 @@ sys.path.append('src/handler')
 sys.path.append('src/repository')
 from ..repository import global_repository as repository
 from ..handler import response_handler as resp
+from . import covid19thai
 
 appBlueprint = Blueprint("covid19global",__name__)
 global_result = repository.getAllData()
@@ -24,5 +25,12 @@ def global_inform():
 @appBlueprint.route('/global')
 def global_inform_country():
     country = str(request.args.get('country'))
-    country = country.trim().lower()
-    result
+    country = country.strip().lower()
+    if country == 'thai':
+        response = covid19thai.thai_inform_all()
+        return response
+    else:
+        result = repository.get_by_country(country)
+        if not result: 
+            return resp.bad_request(resp.COUNTRY_NOT_FOUND)
+        return resp.success(result)

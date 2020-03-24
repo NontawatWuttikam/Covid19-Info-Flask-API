@@ -21,15 +21,27 @@ scheduler.start()
 
 atexit.register(lambda: scheduler.shutdown())
 def getAllData():
-    data = dat()
     return data
 
 def get_menu_keys():
-    data = dat()
     return util.get_keys_list(data)
 
 def getAllData_string():
-    def func():
-        data = dat()
-        return util.dict_toString(data)
-    return handler.url_error_handling(func)
+    return util.dict_toString(data)
+
+def get_by_country(country):
+    keys = list(data.keys())
+    if country not in keys:
+        return 0
+    country_data = data[country]
+    result = "ประเทศ : " + str(country_data['country']).rstrip()+"\n"
+    result += "จำนวนเคสทั้งหมด : " + str(country_data['total']).rstrip() + " เคส \n"
+    result += "ผู้ป่วยรายใหม่ : " + str(country_data['new_cases']).rstrip() + " ราย \n"
+    result += "จำนวนผู้เสียชีวิตรวม : " + str(country_data['total_deaths']).rstrip() + " ราย \n"
+    result += "ผู้เสียชีวิตรายใหม่ : " + str(country_data['new_deaths']).rstrip() + " ราย \n"
+    result += "ผู้ป่วยที่รักษาหาย : "+ str(country_data['total_recoverd']).rstrip() + " ราย \n"
+    result += "ผู้ป่วยที่กำลังเข้ารับการรักษา : " + str(country_data['active_cases']).rstrip() + " ราย \n"
+    result += "ผู้ป่วยวิกฤติ : " + str(country_data['serious_critical']).rstrip() + " ราย \n"
+    result += "จำนวนผู้ป่วยต่อประชากร 1 ล้านคน : " + str(country_data['totalcase_per1million']).rstrip() + " ราย \n"
+    return result
+

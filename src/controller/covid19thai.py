@@ -20,7 +20,7 @@ def landing():
     return "landing"
 
 @appBlueprint.route('/thai/menu')
-def thai_inform():
+def thai_inform_menu():
     global thai_result
     global key_list_thai
     string = util.get_keys_string(thai_result,"ข้อมูลทั้งหมดในประเทศไทย\nกรุณาพิมพ์หมายเลขหัวข้อที่ต้องการเพื่อดูข้อมูล")
