@@ -15,8 +15,14 @@ global_result = repository.getAllData()
 key_list_thai = util.get_keys_list(global_result)
 
 @appBlueprint.route('/global/menu')
-def thai_inform():
+def global_inform():
     global global_result
     global key_list_thai
     string = util.get_keys_string(global_result,"รายชื่อประเทศทั้งหมด\nกรุณาพิมพ์ชื่อประเทศเพื่อเรียกดูข้อมูล")
     return resp.success(data=string)
+
+@appBlueprint.route('/global')
+def global_inform_country():
+    country = str(request.args.get('country'))
+    country = country.trim().lower()
+    result

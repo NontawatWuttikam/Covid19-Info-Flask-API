@@ -11,6 +11,7 @@ data = dat()
 fetch_counter = 1
 def fetch_data():
     global data
+    global fetch_counter
     data = dat()
     print("FETCH DATA FROM API : TOTAL COUNT = "+fetch_counter)
     fetch_counter += 1
