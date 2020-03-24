@@ -17,7 +17,15 @@ key_list_thai = util.get_keys_list(thai_result)
 @appBlueprint.route('/')
 def landing():
     # print(thai_result)
-    return "landing"
+    string = "<h2>ข้อมูลผู้ป่วย COVID-19 ในประเทศไทยและทั่วโลก</h2><br>"
+    string += "<h3>จัดทำโดย : นายนนทวัฒน์ วุฒิคำ</h3><br>"
+    string += "<h3>นักศึกษาชั้นปีที่ 2 คณะวิศวกรรมศาสตร์และเทคโนโลยี สาขาวิศวกรรมคอมพิวเตอร์</h3><br>"
+    string += "<h3>ข้อมูลจาก : ลุงวิศวกรสอนคำนวน (python library api) </h3><br>"
+    string += "<br><br>"
+    string += "<h3>/thai/all ข้อมูลของประเทศไทย</h3><br>"
+    string += "<h3>/global/country={ชื่อประเทศ} ข้อมูลของประเทศอื่นๆ</h3><br>"
+    string += "<h3>/global/country/menu ดูรายชื่อประเทศทั้งหมด</h3><br>"
+
 
 @appBlueprint.route('/thai/menu')
 def thai_inform_menu():
