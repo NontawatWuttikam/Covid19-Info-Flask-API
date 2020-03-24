@@ -13,5 +13,7 @@ def get_menu_keys():
     return util.get_keys_list(data)
 
 def getAllData_string():
-    data = dat()
-    return util.dict_toString(data)
+    def func():
+        data = dat()
+        return util.dict_toString(data)
+    return handler.url_error_handling(func)
