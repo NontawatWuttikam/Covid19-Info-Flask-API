@@ -15,7 +15,11 @@ handler = WebhookHandler('9000b5a93374236a05ffa5683505f0ee')
 @appBlueprint.route("/webhook", methods=['GET', 'POST'])
 def webhook():
     if request.method == 'POST':
+        signature = request.headers['X-Line-Signature']
+        body = request.get_data(as_text=True)
+        handler.handle(body,signature)
         return 'OK'
+
     
 @handler.add(MessageEvent, message=TextMessage)
 def handler_message(evt):
