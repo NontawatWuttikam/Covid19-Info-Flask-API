@@ -25,7 +25,7 @@ def webhook():
 def handler_message(evt):
     if msg.THAI in evt.message.text :
         reply(evt.reply_token,covid19thai_service.thai_inform_all())
-    elif evt.message.text in msg.COUNTRY_LIST:
+    elif msg.COUNTRY_LIST in evt.message.text:
         reply(evt.reply_token,covid19global_service.global_inform())
     else :
         reply(evt.reply_token,msg.ERROR)
