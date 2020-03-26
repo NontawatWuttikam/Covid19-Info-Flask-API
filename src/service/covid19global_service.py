@@ -12,7 +12,10 @@ key_list_thai = util.get_keys_list(global_result)
 def global_inform():
     global global_result
     global key_list_thai
-    string = util.get_keys_string(global_result,"รายชื่อประเทศทั้งหมด\nกรุณาพิมพ์ชื่อประเทศเพื่อเรียกดูข้อมูล")
+    new_result = global_result.copy()
+    new_result.pop('total')
+    new_result.pop('header')
+    string = util.get_keys_string(new_result,"รายชื่อประเทศทั้งหมด\nกรุณาพิมพ์ชื่อประเทศเพื่อเรียกดูข้อมูล")
     return string
 
 def global_inform_country(country):
