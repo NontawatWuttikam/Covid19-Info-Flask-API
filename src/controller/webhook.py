@@ -39,7 +39,7 @@ def handler_message(evt):
     elif msg.USAGE in evt.message.text:
         reply(evt.reply_token,msg.USAGE_REPLY)
     elif msg.CREDIT in evt.message.text:
-        reply(evt.reply_token,"VERSION : "+"\n\n"+msg.CREDIT_REPLY)
+        reply(evt.reply_token,"VERSION : "+msg.VERSION+"\n\n"+msg.CREDIT_REPLY)
     else :
         reply(evt.reply_token,msg.ERROR)
         
