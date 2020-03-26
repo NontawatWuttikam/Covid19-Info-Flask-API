@@ -30,7 +30,7 @@ def handler_message(evt):
         country_sub1 = country_all[:int(len(country_all)/2)-1]
         country_sub2 = country_all[int(len(country_all)/2):len(country_all)]
         line_bot_api.reply_message(
-            token,
+            evt.reply_token,
             [TextSendMessage(text=country_sub1),TextSendMessage(text=country_sub2)]
         )
     else :
