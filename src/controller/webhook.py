@@ -27,6 +27,8 @@ def handler_message(evt):
         reply(evt.reply_token,covid19thai_service.thai_inform_all())
     elif evt.message.text == msg.COUNTRY_LIST:
         reply(evt.reply_token,covid19global_service.global_inform())
+    else :
+        reply(evt.reply_token,msg.ERROR)
         
 def reply(token,text):
     line_bot_api.reply_message(
