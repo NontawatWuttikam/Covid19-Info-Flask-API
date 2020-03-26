@@ -7,11 +7,11 @@ from ..repository import global_repository as repository
 from . import covid19thai_service
 
 global_result = repository.getAllData()
-key_list_thai = util.get_keys_list(global_result)
+key_list_global = util.get_keys_list(global_result)
 
 def global_inform():
     global global_result
-    global key_list_thai
+    global key_list_global
     new_result = global_result.copy()
     new_result.pop('total')
     new_result.pop('header')

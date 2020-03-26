@@ -33,6 +33,9 @@ def handler_message(evt):
             evt.reply_token,
             [TextSendMessage(text=country_sub1),TextSendMessage(text=country_sub2)]
         )
+    elif evt.message.text.strip().lower() in covid19global_service.key_list_global:
+        country_name = evt.message.text.strip().lower()
+        reply(evt.reply_token,covid19global_service.global_inform_country(country_name))
     else :
         reply(evt.reply_token,msg.ERROR)
         
