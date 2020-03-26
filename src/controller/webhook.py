@@ -31,11 +31,15 @@ def handler_message(evt):
         country_sub2 = country_all[int(len(country_all)/2):len(country_all)]
         line_bot_api.reply_message(
             evt.reply_token,
-            [TextSendMessage(text=country_sub1),TextSendMessage(text=country_sub2)]
+            [TextSendMessage(text=country_sub1),TextSendMessage(text=country_sub2+"\nกรุณาพิมพ์ชื่อประเทศเป็นภาษาอังกฤษ เพื่อดูข้อมูล")]
         )
     elif evt.message.text.strip().lower() in covid19global_service.key_list_global:
         country_name = evt.message.text.strip().lower()
         reply(evt.reply_token,covid19global_service.global_inform_country(country_name))
+    elif msg.USAGE in evt.message.text:
+        reply(evt.reply_token,msg.USAGE_REPLY)
+    elif msg.CREDIT in evt.message.text:
+        reply(evt.reply_token,"VERSION : "+"\n\n"+msg.CREDIT)
     else :
         reply(evt.reply_token,msg.ERROR)
         
