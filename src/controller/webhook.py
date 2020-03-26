@@ -26,7 +26,11 @@ def handler_message(evt):
     if msg.THAI in evt.message.text :
         reply(evt.reply_token,covid19thai_service.thai_inform_all())
     elif msg.COUNTRY_LIST in evt.message.text:
-        reply(evt.reply_token,covid19global_service.global_inform())
+        country_all = covid19global_service.global_inform()
+        country_sub1 = country_all[:int(len(country_all)/2)-1]
+        country_sub2 = country_all[int(len(country_all)/2):len(country_all)]
+        reply(evt.reply_token,country_sub1)
+        reply(evt.reply_token,country_sub2)
     else :
         reply(evt.reply_token,msg.ERROR)
         
